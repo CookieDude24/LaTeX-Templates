@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article} % article for shorter reports Protokolle, für longer reports report (has chapters)
+
+
+\usepackage{xpatch} % for overwriting commands
+\usepackage{sectsty}
+\usepackage{graphicx} % for inserting images
+
+
+\usepackage[ngerman]{babel} % sets document language to german
+\usepackage[citestyle=authoryear]{biblatex} % imports biblatex package
+
+\usepackage{listings} % for codeblocks
+\usepackage[]{fancyhdr} % custom headers and footers
+
+\usepackage{hyperref} % for clickable ToC
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+} % makes links in ToC black
+
+\addbibresource{main.bib}
+
+% margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+%------------------------------------------------------------------------------------------
+
+
+% Sets Headers and Footers
+\pagestyle{fancy}
+\fancyhead{} % Clear default header and footer
+\fancyfoot{}
+\fancyhead[L]{Class} % Left header
+\fancyhead[C]{} % Center header
+\fancyhead[R]{Seite \thepage} % Right header
+\fancyfoot[L]{Surname#1, Surname#2, ...}
+
+\begin{document}
+
+% title
+    \title{Title}
+    \author{Authors}
+    \date{Übungsdatum: \today}
+
+% titlepage
+    \begin{center}
+        \includegraphics[width=5cm]{LogoITHTL_white.png}
+        \textbf{{\let\newpage\relax\maketitle}}
+        Subject Class 20xx/xx
+
+    \end{center}
+    \pagebreak
+
+% optional TOC
+    \tableofcontents
+    \listoffigures
+    \pagebreak
+
+% 1st section
+    \section{section}
+    content
+    \subsection{subsection}
+    content
+    \subsubsection{subsubsection}
+    content
+    \paragraph{paragraph}
+    this is a reference to a figure (\ref{fig:demo-figure})
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1cm]{LogoITHTL_white.png}
+        \caption{this is a figure}
+        \label{fig:demo-figure}
+    \end{figure}
+
+
+%---------------------------------------------------------------
+\end{document}
