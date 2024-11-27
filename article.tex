@@ -5,6 +5,14 @@
 \usepackage{sectsty}
 \usepackage{graphicx} % for inserting images
 
+% for multiple images in one figure
+\usepackage{subcaption}
+
+% to wrap text arround a figure
+\usepackage{wrapfig}
+
+% implement example in doc https://www.overleaf.com/learn/latex/Positioning_images_and_tables#Positioning_images
+
 
 \usepackage[ngerman]{babel} % sets document language to german
 \usepackage[citestyle=authoryear]{biblatex} % imports biblatex package
@@ -57,29 +65,40 @@
 }
 \lstset{style=codeStyle}
 
+% Variables
+\usepackage{amsmath}
+
+\def\exerciseDate{Übungsdatum}
+\def\turnInDate{Abgabedatum}
+\def\authors{Autor}
+\def\titleVar{Titel}
+\def\subject{Unterricht x.Jhg}
+
 % Sets Headers and Footers
 \pagestyle{fancy}
 \fancyhead{} % Clear default header and footer
 \fancyfoot{}
-\fancyhead[L]{Class} % Left header
+\fancyhead[L]{\subject} % Left header
 \fancyhead[C]{} % Center header
-\fancyhead[R]{Seite \thepage} % Right header
-\fancyfoot[L]{Surname#1, Surname#2, ...}
+\fancyhead[R]{\turnInDate} % Right header
+\fancyfoot[L]{\authors}
+\fancyfoot[R]{Seite \thepage}
 
 \begin{document}
 
 % title
-    \title{Title}
-    \author{Authors}
-    \date{Übungsdatum: \today}
+    \title{\titleVar}
+    \author{\authors}
+    \date{Übungsdatum: \exerciseDate}
 
 % titlepage
     \begin{center}
-        \includegraphics[width=5cm]{LogoITHTL_white.png}
+        \includegraphics[width=7cm]{LogoITHTL_white.png}
         \textbf{{\let\newpage\relax\maketitle}}
-        Subject Class 20xx/xx
-        \vspace*{5cm}
-        \\Abgabedatum:
+        \subject
+        \vspace{5px}
+        \\Abgabedatum: \turnInDate
+        \vspace{15px}
         \\Bewertung:
     \end{center}
     \thispagestyle{empty}
